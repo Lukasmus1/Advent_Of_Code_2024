@@ -1,0 +1,6 @@
+﻿DayOne/.idea
+DayOne/bin
+DayOne/obj
+*.csproj
+*.sln
+*.user
