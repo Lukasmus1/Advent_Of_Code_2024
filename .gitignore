@@ -2,3 +2,5 @@
 obj
 AOC24.csproj
 AOC24.sln
+bin
+*.user

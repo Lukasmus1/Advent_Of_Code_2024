@@ -1,4 +1,5 @@
-﻿using DayOne;
+﻿using AOC24.DayOne;
+using AOC24.DayTwo;
 
 namespace AOC24;
 
@@ -6,32 +7,15 @@ class MainClass
 {
     static void Main(string[] args)
     {
-        string path = "Input.txt";
-        Console.WriteLine(Directory.GetCurrentDirectory());
-        string[] nums;
-        List<int> left = new();
-        List<int> right = new();
+        IDays d1PartOne = new D1PartOne();
+        IDays d1PartTwo = new D1PartTwo();
         
-        if (File.Exists(path))
-        {
-            nums = File.ReadAllLines(path);
-        }
-        else
-        {
-            return;
-        }
-
-        foreach (string row in nums)
-        {
-            string[] num = row.Split("   ");
-            left.Add(int.Parse(num[0]));
-            right.Add(int.Parse(num[1]));
-        }
+        IDays d2PartOne = new D2PartOne();   
+        IDays d2PartTwo = new D2PartTwo();  
         
-        IDayOne partOne = new PartOne(new List<int>(left), new List<int>(right));
-        IDayOne partTwo = new PartTwo(left, right);
-        
-        Console.WriteLine("Part one: " + partOne.Solve());
-        Console.WriteLine("Part two: " + partTwo.Solve());
+        //Console.WriteLine("Day one, part one: " + d1PartOne.Solve());
+        //Console.WriteLine("Day one, part two: " + d1PartTwo.Solve());
+        //Console.WriteLine("Day two, part one: " + d2PartOne.Solve());
+        //Console.WriteLine("Day two, part two: " + d2PartTwo.Solve());
     }
 }
