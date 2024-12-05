@@ -5,7 +5,6 @@ public class DayTwoInput
     public List<List<int>>? GetInput()
     {
         string path = "Input2.txt";
-        Console.WriteLine(Directory.GetCurrentDirectory());
         string[] nums;
         List<List<int>>? res = new List<List<int>>();
         
