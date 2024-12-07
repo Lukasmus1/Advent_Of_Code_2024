@@ -1,26 +1,26 @@
+using System.Text;
+
 namespace AOC24.DaySeven;
 
 public class D7PartTwo
 {
-    private string ConvertToTernary(int num, int length)
+
+    private void ConvertToTernary(int num, int length, ref StringBuilder res)
     {
-        string res = "";
         do
         {
-            res += num % 3;
+            res.Append(num % 3);
             num /= 3;
         }
-        while (num > 0) ;
-        
-        for(int i = res.Length; i < length; i++)
+        while (num > 0);
+
+        while (res.Length < length)
         {
-            res += "0";
+            res.Append('0');
         }
-        
-        return res;
     }
 
-public long Solve()
+    public long Solve()
     {
         long res = 0;
         List<string> input = new DaySevenInput().GetInput();
@@ -34,26 +34,32 @@ public long Solve()
             int indexOfColon = row.IndexOf(':');
             long result = long.Parse(row.Substring(0, indexOfColon));
             string[] nums = row.Substring(indexOfColon + 2).Split(' ').ToArray();
+            StringBuilder sb = new StringBuilder();
             
             for (int i = 0; i < Math.Pow(3, nums.Length - 1); i++)
             {
                 long currRes = long.Parse(nums[0]);
                 for (int ii = 0; ii < nums.Length - 1; ii++)
                 {
-                    string currNum = ConvertToTernary(i, nums.Length - 1); 
+                    ConvertToTernary(i, ii + 1, ref sb); 
                     
-                    if (currNum[ii] == '0')
+                    if (sb[ii] == '0')
                     {
                         currRes *= long.Parse(nums[ii + 1]);
                     }
-                    else if (currNum[ii] == '1')
+                    else if (sb[ii] == '1')
                     {
                         currRes += long.Parse(nums[ii + 1]);
                     }
                     else
                     {
-                        currRes = long.Parse(currRes + nums[ii + 1]);
+                        sb.Clear();
+                        sb.Append(currRes);
+                        sb.Append(nums[ii + 1]);
+                        currRes = long.Parse(sb.ToString());
                     }
+
+                    sb.Clear();
                 }
 
                 if (currRes == result)
