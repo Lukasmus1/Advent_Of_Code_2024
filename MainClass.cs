@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using AOC24.DayEight;
 using AOC24.DayFour;
 using AOC24.DayOne;
 using AOC24.DayTwo;
@@ -36,8 +37,11 @@ class MainClass
         D6PartTwo d6PartTwo = new D6PartTwo();
         
         D7PartOne d7PartOne = new D7PartOne();
-        //Could probably be done better, rn it's very slow
+        //Could be done better, rn it's very slow
         D7PartTwo d7PartTwo = new D7PartTwo();
+        
+        D8PartOne d8PartOne = new D8PartOne();
+        D8PartTwo d8PartTwo = new D8PartTwo();
         
         //Console.WriteLine("Day one, part one: " + d1PartOne.Solve());
         //Console.WriteLine("Day one, part two: " + d1PartTwo.Solve());
@@ -53,5 +57,7 @@ class MainClass
         //Console.WriteLine("Day six, part two: " + d6PartTwo.Solve());
         //Console.WriteLine("Day seven, part one: " + d7PartOne.Solve());
         //Console.WriteLine("Day seven, part two: " + d7PartTwo.Solve());
+        //Console.WriteLine("Day eight, part one: " + d8PartOne.Solve());
+        //Console.WriteLine("Day eight, part two: " + d8PartTwo.Solve());
     }
 }
