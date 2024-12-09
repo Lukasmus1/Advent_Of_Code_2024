@@ -1,8 +1,8 @@
 namespace AOC24.DayFour;
 
-public class D4PartOne
+public class D4PartOne :IDays
 {
-    public int Solve()
+    public long Solve()
     {
         DayFourInput dayFourInput = new();
         List<List<char>>? input = dayFourInput.GetInput();

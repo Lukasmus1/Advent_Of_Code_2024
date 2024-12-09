@@ -1,6 +1,6 @@
 namespace AOC24.DaySix;
 
-public class D6PartOne
+public class D6PartOne : IDays
 {
     private int GetCount(List<List<char>> input)
     {
@@ -19,7 +19,7 @@ public class D6PartOne
         return res + 1;
     }
     
-    public int Solve()
+    public long Solve()
     {
         List<List<char>> input;
         DaySixInput d6 = new DaySixInput();

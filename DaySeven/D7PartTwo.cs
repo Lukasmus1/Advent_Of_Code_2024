@@ -2,7 +2,7 @@ using System.Text;
 
 namespace AOC24.DaySeven;
 
-public class D7PartTwo
+public class D7PartTwo : IDays
 {
 
     private void ConvertToTernary(int num, int length, ref StringBuilder res)

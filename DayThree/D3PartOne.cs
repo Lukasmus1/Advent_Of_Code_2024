@@ -4,7 +4,7 @@ namespace AOC24.DayThree;
 
 public class D3PartOne : IDays
 {
-    public int Solve()
+    public long Solve()
     {
         DayThreeInput input = new DayThreeInput();
         string? data = input.GetInput();

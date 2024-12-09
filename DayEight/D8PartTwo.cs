@@ -1,8 +1,8 @@
 namespace AOC24.DayEight;
 
-public class D8PartTwo
+public class D8PartTwo : IDays
 {
-    public int Solve()
+    public long Solve()
     {
         DayEightInput inputClass = new DayEightInput();
         List<List<char>> input = inputClass.Getinput();

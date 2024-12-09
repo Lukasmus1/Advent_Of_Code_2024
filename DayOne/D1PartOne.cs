@@ -2,7 +2,7 @@ namespace AOC24.DayOne;
 
 public class D1PartOne : IDays
 {
-    public int Solve()
+    public long Solve()
     {
         List<int>? left;
         List<int>? right;

@@ -1,8 +1,8 @@
 namespace AOC24.DayFive;
 
-public class D5PartTwo
+public class D5PartTwo : IDays
 {
-    public int Solve()
+    public long Solve()
     {
         int res = 0;
         DayFiveInput dayFiveInput = new DayFiveInput();

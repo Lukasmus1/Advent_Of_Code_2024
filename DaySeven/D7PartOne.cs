@@ -1,6 +1,6 @@
 namespace AOC24.DaySeven;
 
-public class D7PartOne
+public class D7PartOne : IDays
 {
     public long Solve()
     {

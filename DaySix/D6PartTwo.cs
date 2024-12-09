@@ -1,6 +1,6 @@
 namespace AOC24.DaySix;
 
-public class D6PartTwo
+public class D6PartTwo : IDays
 {
     private bool IsInCycle((int, int) coords, (int, int) dir, List<List<char>> input, char currChar, HashSet<((int, int), char)> visited)
     {
@@ -33,7 +33,7 @@ public class D6PartTwo
         return false;
     }
 
-    public int Solve()
+    public long Solve()
     {
         DaySixInput d6 = new DaySixInput();
         List<List<char>> input = d6.GetInput();

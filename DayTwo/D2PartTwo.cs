@@ -42,7 +42,7 @@ public class D2PartTwo : IDays
         return true;
     }
     
-    public int Solve()
+    public long Solve()
     {
         DayTwoInput dayTwoInput = new();
         List<List<int>>? input = dayTwoInput.GetInput();
