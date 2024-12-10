@@ -8,37 +8,55 @@ using AOC24.DayFive;
 using AOC24.DayNine;
 using AOC24.DaySeven;
 using AOC24.DaySix;
+using AOC24.DayTen;
 
 namespace AOC24;
 
 class MainClass
 {
+    private static void Solve(IDays partOne, IDays partTwo, string day)
+    {
+        Stopwatch sw = new();
+        long res1, res2;
+        
+        sw.Start();
+        res1 = partOne.Solve();
+        res2 = partTwo.Solve();
+        sw.Stop();
+        
+        Console.WriteLine($"Day {day}, part one: " + res1);
+        Console.WriteLine($"Day {day}, part two: " + res2);
+        Console.WriteLine("Time taken: " + sw.Elapsed.Seconds + "s " + sw.ElapsedMilliseconds + "ms");
+        Console.WriteLine("-------------------------------------------------");
+        sw.Reset();
+    }
+    
     static void Main(string[] args)
     {
-        Solver solver = new();
-        
         //Most of these can be written better with abstract classes and such
+        /*
+        Solve(new D1PartOne(), new D1PartTwo(), "one");
         
-        solver.Solve(new D1PartOne(), new D1PartTwo(), "one");
+        Solve(new D2PartOne(), new D2PartTwo(), "two");
         
-        solver.Solve(new D2PartOne(), new D2PartTwo(), "two");
-        
-        solver.Solve(new D3PartOne(), new D3PartTwo(), "three");
+        Solve(new D3PartOne(), new D3PartTwo(), "three");
         
         //Could be done better with loops for example
-        solver.Solve(new D4PartOne(), new D4PartTwo(), "four");
+        Solve(new D4PartOne(), new D4PartTwo(), "four");
         
-        solver.Solve(new D5PartOne(), new D5PartTwo(), "five");
+        Solve(new D5PartOne(), new D5PartTwo(), "five");
         
         //This really isn't the best solution, tried to fix it, but I ran into a weird bug and decided to give up
-        solver.Solve(new D6PartOne(), new D6PartTwo(), "six");
+        Solve(new D6PartOne(), new D6PartTwo(), "six");
         
         //Part two could be done better, rn it's very slow
-        solver.Solve(new D7PartOne(), new D7PartTwo(), "seven");
+        Solve(new D7PartOne(), new D7PartTwo(), "seven");
         
-        solver.Solve(new D8PartOne(), new D8PartTwo(), "eight");
+        Solve(new D8PartOne(), new D8PartTwo(), "eight");
         
-        solver.Solve(new D9PartOne(), new D9PartTwo(), "nine");
+        Solve(new D9PartOne(), new D9PartTwo(), "nine");
+        */
+        Solve(new D10PartOne(), new D10PartTwo(), "ten");
         
     }
 }
