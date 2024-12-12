@@ -10,6 +10,7 @@ using AOC24.DaySeven;
 using AOC24.DaySix;
 using AOC24.DayTen;
 using AOC24.DayEleven;
+using AOC24.DayTwelve;
 
 namespace AOC24;
 
@@ -57,9 +58,11 @@ class MainClass
         
         Solve(new D9PartOne(), new D9PartTwo(), "nine");
         
-        Solve(new D10PartOne(), new D10PartTwo(), "ten");*/
+        Solve(new D10PartOne(), new D10PartTwo(), "ten");
         
-        Solve(new Day11(25), new Day11(75), "eleven");
+        Solve(new Day11(25), new Day11(75), "eleven");*/
+        
+        Solve(new D12PartOne(), new D12PartOne(), "twelve");
         
     }
 }
