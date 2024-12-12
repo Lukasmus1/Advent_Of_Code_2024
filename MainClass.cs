@@ -62,7 +62,7 @@ class MainClass
         
         Solve(new Day11(25), new Day11(75), "eleven");*/
         
-        Solve(new D12PartOne(), new D12PartOne(), "twelve");
+        Solve(new D12PartOne(), new D12PartTwo(), "twelve");
         
     }
 }

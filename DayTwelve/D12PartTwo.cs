@@ -1,6 +1,6 @@
 namespace AOC24.DayTwelve;
 
-public class D12PartOne : IDays
+public class D12PartTwo : IDays
 {
     private static List<List<char>> _input = new();
     private static HashSet<(int, int)> _visited = new();
@@ -24,7 +24,7 @@ public class D12PartOne : IDays
         if (right && _input[col][row + 1] == c)
         {
             (long, long) tempRes = Next(row + 1, col, c);
-            res += tempRes.Item1;
+            res = tempRes.Item1;
             count += tempRes.Item2;
         }
         else
@@ -35,7 +35,7 @@ public class D12PartOne : IDays
         if (down && _input[col + 1][row] == c)
         {
             (long, long) tempRes = Next(row, col + 1, c);
-            res += tempRes.Item1;
+            res = tempRes.Item1;
             count += tempRes.Item2;
         }
         else
@@ -46,7 +46,7 @@ public class D12PartOne : IDays
         if (left && _input[col][row - 1] == c)
         {
             (long, long) tempRes = Next(row - 1, col, c);
-            res += tempRes.Item1;
+            res = tempRes.Item1;
             count += tempRes.Item2;
             
         }
@@ -58,7 +58,7 @@ public class D12PartOne : IDays
         if (up && _input[col - 1][row] == c)
         {
             (long, long) tempRes = Next(row, col - 1, c);
-            res += tempRes.Item1;
+            res = tempRes.Item1;
             count += tempRes.Item2;
         }
         else
@@ -85,6 +85,7 @@ public class D12PartOne : IDays
             {
                 (long tempRes, long tempCount) = Next(row, col, _input[col][row]);
                 res += tempRes * tempCount;
+                Console.WriteLine($"{tempRes} * {tempCount} = {tempRes * tempCount}");
             }
         }
 
