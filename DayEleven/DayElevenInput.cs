@@ -2,10 +2,10 @@ namespace AOC24.DayEleven;
 
 public class DayElevenInput
 {
-    public Dictionary<string, int> GetInput()
+    public Dictionary<string, long> GetInput()
     {
         string path = "Input11.txt";
-        Dictionary<string, int> res = new();
+        Dictionary<string, long> res = new();
         
         if (!File.Exists(path)) 
             return res;

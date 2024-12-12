@@ -59,7 +59,7 @@ class MainClass
         
         Solve(new D10PartOne(), new D10PartTwo(), "ten");*/
         
-        Solve(new Day11(25), new Day11(30), "eleven");
+        Solve(new Day11(25), new Day11(75), "eleven");
         
     }
 }
