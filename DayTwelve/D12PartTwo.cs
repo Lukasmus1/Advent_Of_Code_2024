@@ -5,7 +5,7 @@ public class D12PartTwo : IDays
     private static List<List<char>> _input = new();
     private static HashSet<(int, int)> _visited = new();
 
-    private static (long, long) Next(int row, int col, char c)
+    private static (long, long) Next(int row, int col, char c, ushort dir)
     {
         long res = 0;
         long count = 0;
@@ -15,55 +15,64 @@ public class D12PartTwo : IDays
         }
         
         count = 1;
-        
-        bool left = row - 1 >= 0;
-        bool right = row + 1 < _input[col].Count;
-        bool up = col - 1 >= 0;
-        bool down = col + 1 < _input.Count;
 
-        if (right && _input[col][row + 1] == c)
+        switch (dir)
         {
-            (long, long) tempRes = Next(row + 1, col, c);
-            res = tempRes.Item1;
-            count += tempRes.Item2;
-        }
-        else
-        {
-            res += 1;
-        }
-
-        if (down && _input[col + 1][row] == c)
-        {
-            (long, long) tempRes = Next(row, col + 1, c);
-            res = tempRes.Item1;
-            count += tempRes.Item2;
-        }
-        else
-        {
-            res += 1;
-        }
-
-        if (left && _input[col][row - 1] == c)
-        {
-            (long, long) tempRes = Next(row - 1, col, c);
-            res = tempRes.Item1;
-            count += tempRes.Item2;
+            case 0:
+                bool right = row + 1 < _input[col].Count;
+                if (right && _input[col][row + 1] == c)
+                {
+                    (long tempRes, long tempCount) = Next(row + 1, col, c, 0);
+                    res = tempRes;
+                    count += tempCount;
+                }
+                else
+                {
+                    res = 1;
+                }
+                break;
             
-        }
-        else
-        {
-            res += 1;
-        }
-
-        if (up && _input[col - 1][row] == c)
-        {
-            (long, long) tempRes = Next(row, col - 1, c);
-            res = tempRes.Item1;
-            count += tempRes.Item2;
-        }
-        else
-        {
-            res += 1;
+            case 1:
+                bool down = col + 1 < _input.Count;
+                if (down && _input[col + 1][row] == c)
+                {
+                    (long tempRes, long tempCount) = Next(row, col + 1, c, 1);
+                    res = tempRes;
+                    count += tempCount;
+                }
+                else
+                {
+                    res = 1;
+                }
+                break;
+            
+            case 2:
+                bool left = row - 1 >= 0;
+                if (left && _input[col][row - 1] == c)
+                {
+                    (long tempRes, long tempCount) = Next(row - 1, col, c, 2);
+                    res = tempRes;
+                    count += tempCount;
+                }
+                else
+                {
+                    res = 1;
+                }
+                break;
+            
+            case 3:
+                bool up = col - 1 >= 0;
+                if (up && _input[col - 1][row] == c)
+                {
+                    (long tempRes, long tempCount) = Next(row, col - 1, c, 3);
+                    res = tempRes;
+                    count += tempCount;
+                }
+                else
+                {
+                    res = 1;
+                }
+                break;
         }
 
         return (res, count);
@@ -83,9 +92,15 @@ public class D12PartTwo : IDays
         {
             for (int row = 0; row < _input[col].Count; row++)
             {
-                (long tempRes, long tempCount) = Next(row, col, _input[col][row]);
-                res += tempRes * tempCount;
-                Console.WriteLine($"{tempRes} * {tempCount} = {tempRes * tempCount}");
+                long tempRes = 0;
+                long tempCount = 0;
+                for (ushort i = 0; i < 4; i++)
+                {
+                    (tempRes, tempCount) = Next(row, col, _input[col][row], i);
+                    res += tempRes;
+                    Console.WriteLine(tempRes);
+                }
+                _visited.Clear();
             }
         }
 
